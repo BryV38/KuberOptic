@@ -18,6 +18,7 @@ import Visualizer from './visualizer'
 
 const DisplayContainer = () => {
   const [Store, setStore] = useContext(StoreContext)
+  console.log('Bryan DisplayContainer: ' + Store)
   console.log(Store)
     return (
       <div className='displayContainer'>

@@ -104,6 +104,7 @@
     "@types/d3": "^5.7.2",
     "@types/electron-devtools-installer": "^2.2.0",
     "@types/react-router-dom": "^4.3.5",
+    "async": "^3.1.0",
     "aws-sdk": "^2.548.0",
     "babel-loader": "^8.0.6",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",

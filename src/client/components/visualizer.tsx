@@ -56,6 +56,9 @@ const far = 3000;
 const Visualizer = () => {
 
  let [store, setStore] = useContext(StoreContext);
+
+ console.log('Bryan visualize clusters: ')
+ console.log(store.clusters);
  useEffect(() => {
     if(store.clusters != null){
       const renderer = new THREE.WebGLRenderer();

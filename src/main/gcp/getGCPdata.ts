@@ -4,7 +4,12 @@ const container = require('@google-cloud/container');
 async function quickstart(GOOGLE_APPLICATION_CREDENTIALS:object, zone:string) {
   const client = new container.v1.ClusterManagerClient(GOOGLE_APPLICATION_CREDENTIALS);
   const projectId:string = GOOGLE_APPLICATION_CREDENTIALS['project_id'];
-  if (zone == null) zone= 'us-central1-a'
+  console.log('Bryan: quickstart was run')
+
+  if (zone == null) {
+    zone= 'us-central1-a'
+  }
+  console.log(`quickstart zone: ${zone}`)
 
   const request:object = {
     projectId,
@@ -32,6 +37,8 @@ async function quickstart(GOOGLE_APPLICATION_CREDENTIALS:object, zone:string) {
     })
     clusterArray.push(gcpDat)
   })
+  console.log('return was run on quickstart')
+  console.log(clusterArray)
   return clusterArray;
 }
 

@@ -5,6 +5,8 @@ export const StoreContext = createContext(null);
 export const StoreContextProvider = (props: any) => {
   
   const [Store, setStore] = useState({
+    multiZoneClusters: null,
+    multiZones: null,
     landingPageState: false,
     uploadPageState: false,
     uploadPageState2:false,

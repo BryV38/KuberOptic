@@ -13,6 +13,9 @@ import * as React from 'react';
 import { useContext } from 'react';
 import {StoreContext} from '../../../store'
 const [quickstart, create] = require('../../main/gcp/getGCPdata').default
+
+console.log('Bryan gcpDeploy afte the quickstart')
+
 const { ipcRenderer } = require('electron');
 require('events').EventEmitter.defaultMaxListeners = 25;
 import 'tachyons'
@@ -22,8 +25,12 @@ let input = {};
 
 const gcpDeploy = () =>{
   const [Store, setStore] = useContext(StoreContext);
-  
+  console.log('Inside the gcpDeploy function')
+  console.log(Store.clusters);
+
   ipcRenderer.on('newClusters', (event: any, arg: any) => {
+    console.log('Bryan clusters: ')
+    console.log(Store.clusters)
     if(Store.clusters.length < arg.length){
       let newClusters = [];
       arg.forEach(el=> newClusters.push(el))
@@ -56,6 +63,7 @@ const gcpDeploy = () =>{
     create(Store.credentials, input['zone'], input)
     const creds = JSON.parse(Store.credentials)
     setStore({...Store, gcpDeployPage:false, uploadPageState: true})
+    console.log('broke at handleSubmit of get new clusters')
     ipcRenderer.send('getNewClusters', creds, Store.gcploc);
   }
 

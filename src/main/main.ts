@@ -20,9 +20,11 @@ let dat = new Date()
  }
 
 ipcMain.on('asynchronous-message', (event: any, arg1: any, arg2: any) => {
-  getLocal().then(res=>{
-    event.sender.send('clusterClient', res)      
-  }).catch((e)=>console.log(e))
+  // getLocal().then(res=>{
+  //   event.sender.send('clusterClient', res)      
+  // }).catch((e)=>console.log(e))
+  console.log(`Async call invoked at Main to getGCP`)
+  console.log(arg2)
   getGcp(arg1, arg2).then(res=>{
     event.sender.send('clusterClient', res)
   }).catch((e)=>console.log(e))
